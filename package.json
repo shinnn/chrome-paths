@@ -1,0 +1,41 @@
+{
+	"name": "chrome-paths",
+	"version": "0.1.0",
+	"description": "Possible paths or binary names of Chrome, Chrome Canary and Chromium in the current platform",
+	"repository": "shinnn/chrome-paths",
+	"author": "Shinnosuke Watanabe (https://github.com/shinnn)",
+	"license": "ISC",
+	"scripts": {
+		"pretest": "eslint .",
+		"test": "node test.js"
+	},
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"chrome",
+		"chromium",
+		"canary",
+		"dartium",
+		"path",
+		"paths",
+		"locate",
+		"location",
+		"executable"
+	],
+	"dependencies": {
+		"karma-chrome-launcher": "^2.2.0"
+	},
+	"devDependencies": {
+		"@shinnn/eslint-config-node": "^6.0.0",
+		"clear-module": "^3.0.0",
+		"eslint": "^5.2.0",
+		"execa": "^0.10.0",
+		"isexe": "^2.0.0",
+		"pretend-platform": "^2.0.0",
+		"tape": "^4.9.1"
+	},
+	"eslintConfig": {
+		"extends": "@shinnn/node"
+	}
+}
