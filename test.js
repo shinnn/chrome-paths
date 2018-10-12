@@ -1,33 +1,28 @@
 'use strict';
 
+const {execFile} = require('child_process');
 const {isAbsolute} = require('path');
 const {promisify} = require('util');
 
 const chromePaths = require('.');
 const clearModule = require('clear-module');
-const getStdout = require('execa').stdout;
 const isexe = require('isexe');
 const pretendPlatform = require('pretend-platform');
 const test = require('tape');
 
 test('chromePaths.chrome', async t => {
-	try {
-		// https://bugs.chromium.org/p/chromium/issues/detail?id=158372
-		if (process.platform === 'win32') {
-			t.ok(
-				await promisify(isexe)(chromePaths.chrome),
-				'should be a path of an application.'
-			);
-		} else {
-			const stdout = await getStdout(chromePaths.chrome, ['--version']);
+	if (process.platform === 'win32') {
+		t.ok(
+			await promisify(isexe)(chromePaths.chrome),
+			'should be a path of an application.'
+		);
+	} else {
+		const {stdout} = await promisify(execFile)(chromePaths.chrome, ['--version']);
 
-			t.ok(
-				stdout.startsWith('Google Chrome'),
-				`should be a path of ${stdout.trim()}.`
-			);
-		}
-	} catch (err) {
-		t.fail(err.stack);
+		t.ok(
+			stdout.startsWith('Google Chrome'),
+			`should be a path of ${stdout.trim()}.`
+		);
 	}
 
 	t.end();
