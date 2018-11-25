@@ -1,9 +1,15 @@
-os:
-  - linux
-  - osx
 branches:
   except: /^v\d/
 language: node_js
 node_js: node
-addons:
-  chrome: stable
+matrix:
+  include:
+  - addons:
+      chrome: stable
+  - os: osx
+    addons:
+      chrome: stable
+    script: node test.js
+  - os: windows
+    before_install: choco install googlechrome
+    script: node test.js

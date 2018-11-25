@@ -2,7 +2,6 @@
 
 [![npm version](https://img.shields.io/npm/v/chrome-paths.svg)](https://www.npmjs.com/package/chrome-paths)
 [![Build Status](https://travis-ci.com/shinnn/chrome-paths.svg?branch=master)](https://travis-ci.com/shinnn/chrome-paths)
-[![Build status](https://ci.appveyor.com/api/projects/status/fudm5n2n84c1fd4i/branch/master?svg=true)](https://ci.appveyor.com/project/ShinnosukeWatanabe/chrome-paths/branch/master)
 
 Possible paths or binary names of [Chrome](https://www.google.com/chrome/), [Chrome Canary](https://www.google.com/chrome/canary/) and [Chromium](https://www.chromium.org/Home) in the current platform
 
