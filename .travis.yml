@@ -4,7 +4,8 @@ language: node_js
 node_js: node
 matrix:
   include:
-  - addons:
+  - dist: xenial
+    addons:
       chrome: stable
   - os: osx
     addons:
