@@ -1,11 +1,11 @@
 if: branch !~ ^v\d
 language: node_js
 node_js: node
-matrix:
+jobs:
   include:
   - dist: xenial
     addons:
-      chrome: stable
+      snaps: chromium
   - os: osx
     addons:
       chrome: stable

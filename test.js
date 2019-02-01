@@ -49,7 +49,7 @@ test('chromePaths.chromium', t => {
 	if (process.platform === 'linux') {
 		t.equal(
 			chromePaths.chromium,
-			'chromium-browser',
+			'chromium',
 			'should be a binary name on Linux.'
 		);
 	} else {
@@ -62,7 +62,7 @@ test('chromePaths.chromium', t => {
 	t.end();
 });
 
-test('chromePaths on an OS neither Linux, Windows and macOS', async t => {
+test('chromePaths on an OS neither Linux, Windows nor macOS', async t => {
 	clearModule('.');
 	clearModule('karma-chrome-launcher');
 	pretendPlatform('sunos');

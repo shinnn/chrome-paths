@@ -18,7 +18,7 @@ chromePaths.chromium; //=> '/Applications/Chromium.app/Contents/MacOS/Chromium'
 
 chromePaths.chrome; //=> 'google-chrome'
 chromePaths.chromeCanary; //=> null
-chromePaths.chromium; //=> 'chromium-browser'
+chromePaths.chromium; //=> 'chromium'
 
 // On Windows
 
@@ -35,7 +35,7 @@ chromePaths.chromium; //=> null
 
 ## Installation
 
-[Use](https://docs.npmjs.com/cli/install) [npm](https://docs.npmjs.com/getting-started/what-is-npm).
+[Use](https://docs.npmjs.com/cli/install) [npm](https://docs.npmjs.com/about-npm/).
 
 ```
 npm install chrome-paths
@@ -57,8 +57,8 @@ const {promisify} = require('util');
 const {chrome, chromeCanary} = require('chrome-paths');
 
 (async () => {
-  (await promisify(execFile)(chrome, ['--version'])).stdout; //=> 'Google Chrome 68.0.3440.75 \n'
-  (await promisify(execFile)(chromeCanary, ['--version'])).stdout; //=> 'Google Chrome 70.0.3502.0 canary\n'
+  (await promisify(execFile)(chrome, ['--version'])).stdout; //=> 'Google Chrome 71.0.3578.98 \n'
+  (await promisify(execFile)(chromeCanary, ['--version'])).stdout; //=> 'Google Chrome 74.0.3689.0 canary\n'
 })();
 ```
 
@@ -66,4 +66,4 @@ Whether each property is a full path, just a binary name or `null` depends on th
 
 ## License
 
-[ISC License](./LICENSE) © 2018 Shinnosuke Watanabe
+[ISC License](./LICENSE) © 2018 - 2019 Shinnosuke Watanabe
