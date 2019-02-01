@@ -32,10 +32,8 @@
 	},
 	"devDependencies": {
 		"@shinnn/eslint-config": "^6.7.1",
-		"clear-module": "^3.0.0",
 		"eslint": "^5.6.1",
 		"isexe": "^2.0.0",
-		"pretend-platform": "^2.0.0",
 		"tape": "^4.9.1"
 	},
 	"eslintConfig": {

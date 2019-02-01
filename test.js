@@ -3,11 +3,10 @@
 const {execFile} = require('child_process');
 const {isAbsolute} = require('path');
 const {promisify} = require('util');
+const {Worker} = require('worker_threads');
 
 const chromePaths = require('.');
-const clearModule = require('clear-module');
 const isexe = require('isexe');
-const pretendPlatform = require('pretend-platform');
 const test = require('tape');
 
 test('chromePaths.chrome', async t => {
@@ -63,13 +62,11 @@ test('chromePaths.chromium', t => {
 });
 
 test('chromePaths on an OS neither Linux, Windows nor macOS', async t => {
-	clearModule('.');
-	clearModule('karma-chrome-launcher');
-	pretendPlatform('sunos');
+	t.plan(1);
 
-	const solarisChromePaths = require('.');
-
-	t.deepEqual(
+	new Worker(`Object.defineProperty(process, 'platform', {value: 'sunos'});
+require('worker_threads').parentPort.postMessage(require('.'));
+`, {eval: true}).on('message', solarisChromePaths => t.deepEqual(
 		solarisChromePaths,
 		{
 			chrome: null,
@@ -77,7 +74,5 @@ test('chromePaths on an OS neither Linux, Windows nor macOS', async t => {
 			chromium: null
 		},
 		'should have no paths.'
-	);
-
-	t.end();
+	)).on('error', t.fail);
 });
